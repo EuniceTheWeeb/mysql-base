@@ -1,19 +1,17 @@
 {{#extends "base"}}
 {{#block "content"}}
-<h1>Customers</h1>
+<h1>Employees</h1>
 <table class="table">
     <tr>
         <th>First Name</th>
         <th>Last Name</th>
-        <th>Rating</th>
-        <th>Company</th>
+        <th>Department</th>
     </tr>
-    {{#each customers}}
+    {{#each employees}}
     <tr>
-        <td>{{Customers.first_name}}</td>
-        <td>{{Customers.last_name}}</td>
-        <td>{{rating}}</td>
-        <td>{{Companies.name}}</td>
+        <td>{{Employees.first_name}}</td>
+        <td>{{Employees.last_name}}</td>
+        <td>{{Departments.name}}</td>
     </tr>
     {{/each}}
 </table>

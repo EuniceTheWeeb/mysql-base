@@ -22,6 +22,15 @@
             {{/each}}
         </select>
     </div>
+    <div class="mb-3">
+        <label>Employees</label>
+        <select name="employee_id" class="form-control" multiple>
+            {{#each employees}}
+            <option value="{{employee_id}}">{{first_name}} {{last_name}}</option>
+            {{/each}}
+        </select>
+    </div>
+
     <button type="submit" class="btn btn-primary">Add Customer</button>
 </form>
 {{/block}}
