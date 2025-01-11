@@ -1,12 +1,29 @@
 {{#extends "base"}}
 {{#block "content"}}
-<h1>Customers</h1>
+<h1>Customers Table</h1>
+
+<div class="container">
+    <h2>Search</h2>
+    <form method="GET">
+        <input type="text" name="first_name" value="{{searchTerms.first_name}}" placeholder="First Name">
+        <input type="text" name="last_name" value="{{searchTerms.last_name}}" placeholder="Last Name">
+        <input type="text" name="rating" value="{{searchTerms.rating}}" placeholder="Rating">
+        <input type="text" name="company" value="{{searchTerms.company}}" placeholder="Company">
+        <input type="submit" value="search" />
+    </form>
+</div>
+<br>
+<div class="container">
+    <a href="/customers/create" class="btn btn-primary">Create Customer</a>
+</div>
+
 <table class="table">
     <tr>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Rating</th>
         <th>Company</th>
+        <th>Actions</th>
     </tr>
     {{#each customers}}
     <tr>
@@ -15,10 +32,12 @@
         <td>{{Customers.rating}}</td>
         <td>{{Companies.name}}</td>
 
-        <td><a href="/customers/{{this.Customers.customer_id}}/edit" class="btn btn-primary">Edit</a></td>
-        <td><a href="/customers/{{this.Customers.customer_id}}/delete" class="btn btn-danger">Delete</a></td>
+        <td><a href="/customers/{{this.Customers.customer_id}}/edit" class="btn btn-primary">Edit</a>
+            <a href="/customers/{{this.Customers.customer_id}}/delete" class="btn btn-danger">Delete</a>
+        </td>
     </tr>
     {{/each}}
 </table>
+</div>
 {{/block}}
 {{/extends}}
