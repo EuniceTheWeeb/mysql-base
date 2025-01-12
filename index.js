@@ -6,7 +6,6 @@ const { createConnection } = require('mysql2/promise');
 const req = require('express/lib/request');
 const helpers = require("handlebars-helpers")
 
-
 let app = express();
 app.set('view engine', 'hbs');
 app.use(express.static('public'));
@@ -40,6 +39,7 @@ async function main() {
     });
 
     // MARK: read
+    // might interfere with search function
     // app.get('/customers', async (req, res) => {
     //     const [customers] = await connection.execute({
     //         'sql': `
@@ -182,8 +182,6 @@ async function main() {
             'sql': query,
             'nestTables': true
         }, bindings);
-
-        console.log(customers);
 
         res.render('customers.hbs', {
             customers,
